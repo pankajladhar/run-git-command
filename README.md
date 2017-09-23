@@ -1,43 +1,23 @@
 # Description
-_seasons-cli_ is a command line tool.
+_run-git-command_ A light weight wrapper for running git commands in any node.js application..
+
+# Dependencies
+Relies on [git](https://git-scm.com/downloads) already having been installed on the system, 
+and that it can be called using the command `git`.
 
 # Installation 
-
 To install the stable version you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com/en/): 
 
 ```shell
-$ npm install react-front-cli 
+$ npm install run-git-command
 ```
 
 ```shell
-$ yarn install react-front-cli  
+$ yarn install run-git-command  
 ```
 
-# CLI
-```shell
-$ react-front-cli [options]
-```
-if option is not provided then `$ react-front-cli -h` will be executed. 
-
-
-# CLI Options
-* `-u, --updateversion`  Bumps up patch version, It will amend to exisiting local commit if exists else will create a new local commit
-* `-c or --createcomponent` Creates Skeletion of component
-* `-V or --version` Outputs the version number season-cli
-* `-h or --help` Outputs usage information
-
-# Component Structure
-`$ react-front-cli -c`
-
-Following structure has been generated where `SampleComponent` is component name.
-
-![createcomponent](https://raw.githubusercontent.com/pankajladhar/react-front-cli/master/src/images/createcomponent.jpg)
-
+# Usage
+Include into your app using:
 ```javascript
-└─ SampleComponent
-   ├─ __tests__
-   │  └─ SampleComponentSpec.js
-   ├─ Readme.md
-   ├─ SampleComponent.scss
-   └─ Settings.scss
+var execGitCmd = require('run-git-command');
 ```

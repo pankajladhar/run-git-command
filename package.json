@@ -1,17 +1,15 @@
 {
   "name": "run-git-command",
   "version": "1.0.0",
-  "description": "A light weight interface for running git commands in any node.js application.",
+  "description": "A light weight wrapper for running git commands in any node.js application.",
   "main": "index.js",
-  "scripts": {
-    "test": "as"
-  },
   "repository": {
     "type": "git",
-    "url": "dad"
+    "url": "https://github.com/pankajladhar/run-git-command.git"
   },
+  "homepage": "https://github.com/pankajladhar/run-git-command",
   "keywords": [
-    "aaddad"
+    "git", "command", "promise", "execute git command"
   ],
   "author": "Pankaj Ladhar <ladharpankaj@gmail.com>",
   "license": "MIT"
