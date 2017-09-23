@@ -1,7 +1,7 @@
 const { spawn } = require('child_process');
 
 var execGitCmd = function(args, customMsg){
-    var promise = new Promise((resolve, reject) =>{
+    return new Promise((resolve, reject) =>{
         let message = ""
 
         message = customMsg ? `${customMsg}...` : `git ${args[0]} is executing...` ;
@@ -12,10 +12,8 @@ var execGitCmd = function(args, customMsg){
 
         command.stdout.on('data', (data) => stdOutData += data )
         command.stderr.on('data', (data) => stderrData += data );
-        command.on('close', (code) => code!=0 ? reject(stderrData) : resolve(stdOutData));
+        command.on('close', (code) => code!=0 ? reject(stderrData.toString()) : resolve(stdOutData.toString()));
     })
-
-    return promise;
 }
 
 module.exports = execGitCmd;

@@ -2,6 +2,12 @@
   "name": "run-git-command",
   "version": "1.0.0",
   "description": "A light weight wrapper for running git commands in any node.js application.",
+  "contributors": [
+    {
+      "name": "Pankaj Ladhar",
+      "email": "ladharpankaj@gmail.com"
+    }
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
