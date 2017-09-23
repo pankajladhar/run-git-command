@@ -57,7 +57,8 @@ execGitCmd(['pull', '--rebase'])
 
 let execGitCmd = require('run-git-command');
 
-execGitCmd(['push', 'origin', 'master'], "Running push task")       .then((res)=>{
+execGitCmd(['push', 'origin', 'master'], "Running push task")
+    .then((res)=>{
         console.log(res)
     }).catch((err)=>{
         console.log("Err", err)
