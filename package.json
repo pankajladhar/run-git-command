@@ -1,0 +1,18 @@
+{
+  "name": "run-git-command",
+  "version": "1.0.0",
+  "description": "A light weight interface for running git commands in any node.js application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "as"
+  },
+  "repository": {
+    "type": "git",
+    "url": "dad"
+  },
+  "keywords": [
+    "aaddad"
+  ],
+  "author": "Pankaj Ladhar <ladharpankaj@gmail.com>",
+  "license": "MIT"
+}
