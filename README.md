@@ -26,7 +26,7 @@ import {execGitCmd} from "run-git-command";
 /** You can read more about this in the project's wiki **/
 const execOptions = {
     execOptions: {}, // Options passed to the child_process spawn executor
-    logProcess: false, // By default a consoloe log is being printed
+    logProcess: false, // By default a console log is being printed
     customMsg: `run-git-command` // A custom msg to be printed to the console
 };
 
