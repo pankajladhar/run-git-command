@@ -1,11 +1,11 @@
-# Description
-_run-git-command_ A light weight wrapper for running git commands in any node.js application..
+# _run-git-command_ &nbsp; [![npm version](https://badge.fury.io/js/run-git-command.svg)](https://badge.fury.io/js/run-git-command)
 
-# Dependencies
-Relies on [git](https://git-scm.com/downloads) already having been installed on the system, 
-and that it can be called using the command `git`.
+A light weight promise wrapper for running git commands in any node.js application.
 
-# Installation 
+# Dependencies 🤝
+Having [git](https://git-scm.com/downloads) installed on your system.
+
+# Installation ⬇
 To install the stable version you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com/en/): 
 
 ```shell
@@ -17,72 +17,31 @@ $ yarn install run-git-command
 ```
 
 # Usage
-Include into your app using:
+`execGitCmd` takes two parameters:
+1. Array of git command arguments (e.g ["merge", "--abort"] -> 'git merge --abort') 
+2. [Executor options]() (optional)
 ```javascript
-let execGitCmd = require('run-git-command');
-```
-since `execGitCmd` returns promise , it can be used to chanin multile git commands
+import {execGitCmd} from "run-git-command";
 
-`execGitCmd` method takes two paramets:
+/** You can read more about this in the project's wiki **/
+const execOptions = {
+    execOptions: {}, // Options passed to the child_process spawn executor
+    logProcess: false, // By default a console log is being printed
+    customMsg: `run-git-command` // A custom msg to be printed to the console
+};
 
-1. First arument is array (required)
-1. Second is string (optional)
-
-``` javascript
-execGitCmd(["args"], "message to be printed while running commad")
-```
-
-## example
-
-```javascript
-/* 
-   When second arg is not passed then while running 
-   it will print 'git pull is executing ....'
-*/
-
-let execGitCmd = require('run-git-command');
-
-execGitCmd(['pull', '--rebase'])
-    .then((res)=>{
-        console.log(res)
-    }).catch((err)=>{
-        console.log("Err", err)
-    })
-
-
-/* 
-    When second arg is passed then while running 
-    it will print 'Running push task ....'
-*/
-
-let execGitCmd = require('run-git-command');
-
-execGitCmd(['push', 'origin', 'master'], "Running push task")
-    .then((res)=>{
-        console.log(res)
-    }).catch((err)=>{
-        console.log("Err", err)
-    })
-
-
-/*
-    chaining example
-*/
-
-let execGitCmd = require('run-git-command');
-
-execGitCmd(['pull', '--rebase', 'origin', 'master'])
-    .then(()=>execGitCmd(['push', 'origin', 'master'])
-    .then((res)=>{
-        console.log(res)
-    })
-    .catch((err)=>{
-        console.log("Err", err)
-    })
+/** Simple usage **/
+execGitCmd(['pull'], execOptions)
+    .then((result) => "Command ran successfully")
+    .catch((error) => "Command execution failed");
+    
+/** Since the executor returns a promise they can be chained **/
+execGitCmd(['pull'], execOptions)
+    .then(() => execGitCmd(['push']))
+    .then((result) => "Both commands ran successfully")
+    .catch((error) => "Command execution failed");
 
 ```
-
-
 # License
 
 MIT
