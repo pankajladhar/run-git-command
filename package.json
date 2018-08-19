@@ -1,6 +1,6 @@
 {
   "name": "run-git-command",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "A light weight wrapper for running git commands in any node.js application.",
   "contributors": [
     {
@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "rm -rf ./dist && tsc",
-    "prepublish": "npm run build",
+    "prepublish": "npm run build && cp package.json ./dist && cp README.md ./dist",
     "pub": "npm publish --access public"
   },
   "main": "index.js",
