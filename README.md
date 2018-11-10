@@ -19,31 +19,37 @@ $ yarn install run-git-command
 # Usage
 `execGitCmd` takes two parameters:
 1. Array of git command arguments (e.g ["merge", "--abort"] -> 'git merge --abort') 
-2. [Executor options]() (optional)
+2. [Executor options](#executor-options ) (optional)
 ```javascript
 import {execGitCmd} from "run-git-command";
 
 /** You can read more about this in the project's wiki **/
-const execOptions = {
+const execOptionsObject = {
     execOptions: {}, // Options passed to the child_process spawn executor
     logProcess: false, // By default a console log is being printed
     customMsg: `run-git-command` // A custom msg to be printed to the console
 };
 
 /** Simple usage **/
-execGitCmd(['pull'], execOptions)
+execGitCmd(['pull'], execOptionsObject)
     .then((result) => "Command ran successfully")
     .catch((error) => "Command execution failed");
     
 /** Since the executor returns a promise they can be chained **/
-execGitCmd(['pull'], execOptions)
+execGitCmd(['pull'], execOptionsObject)
     .then(() => execGitCmd(['push']))
     .then((result) => "Both commands ran successfully")
     .catch((error) => "Command execution failed");
 
 ```
+
+## Executor options
+|Key|Description|Input type|
+|-----|-------|-----|
+|execOptions|Options passed to the child_process spawn executor|Object|
+|logProcess|To control printing of console.log|Boolean(default true)|
+|customMsg|A custom msg to be printed to the console|String|
 # License
 
 MIT
-
 
